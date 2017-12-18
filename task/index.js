@@ -1,5 +1,5 @@
-var xbique 			= require('./xbique');
-		// xbiqueAnti 	= require('./xbiqueAnti');
+var xbique 				= require('./xbique');
+		xbiqueArti 	= require('./xbiqueArti');
 
 
 
@@ -8,9 +8,9 @@ var xbique 			= require('./xbique');
 var init= () => {
 	try {
 		xbique.spiders();
-		// xbiqueAnti.spiders();
+		xbiqueArti.spiders();
 	} catch(err) {
-		console.log('init err='+err);
+		console.log('init err='+err.stack);
 	}
 }
 init();
