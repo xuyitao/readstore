@@ -6,6 +6,7 @@ var xbique 			= require('./xbique');
 
 
 var init= () => {
+	console.log(11111111);
 	try {
 		xbique.spiders();
 		// xbiqueAnti.spiders();
@@ -13,5 +14,5 @@ var init= () => {
 		console.log('init err='+err);
 	}
 }
-
+console.log(22222222222);
 init();
