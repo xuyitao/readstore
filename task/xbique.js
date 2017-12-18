@@ -6,7 +6,7 @@ var  	AV 			= require('leanengine'),
   		util 		= require('../common/util'),
 			cache		= require('../common/cache'),
 			iconv 	= require('iconv-lite'),
-			debug = require('debug')('spider/xbique'),
+			debug 	= require('debug')('spider/xbique'),
 			getMeta = require("lets-get-meta"),
 			cheerio = require('cheerio');
 
