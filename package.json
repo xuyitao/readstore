@@ -16,7 +16,12 @@
     "koa-static": "^4.0.1",
     "koa-views": "^6.0.2",
     "leancloud-storage": "^3.0.2",
-    "leanengine": "^3.0.0"
+    "leanengine": "^3.0.0",
+    "lets-get-meta": "^2.1.1",
+    "moment": "^2.20.0",
+    "redis": "^2.8.0",
+    "request": "^2.83.0",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
