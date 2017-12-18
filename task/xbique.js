@@ -32,7 +32,7 @@ module.exports.spiders = async function () {
 		}
 		try {
 			let result = await getHeaderPage(index);
-			console.log('result='+result);
+			// console.log('result='+result);
 
 			if(result) {
 				index++
