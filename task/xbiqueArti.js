@@ -41,6 +41,36 @@ module.exports.spiders = async () => {
 		}
 	}
 }
+
+var isGo = false;
+module.exports.spiderDef = async () => {
+	debug('xbiequeArti runtask isGo='+isGo);
+	if(isGo) return ;
+
+	isGo = true;
+	try {
+		let query = new AV.Query(itemHead);
+		query.equalTo('isupdate', 1);
+		query.ascending('updatedAt');
+		let item = await query.first()
+		if(item) {
+			let res = await getChapterPage(item.toJSON())
+			// return cache.set(key, index);
+			if(res && item) {
+				if(!item) {
+					item = new headClass()
+				}
+				item.set('isupdate', 0);
+				await itemObj.save();
+			}
+		}
+
+	}catch(err) {
+		console.log('xbiequeArti spiders  err='+err.stack);
+	}
+	isGo = false;
+}
+
 function spiderTest() {
 	// for(let i = 1; i<30; i++) {
 	getChapterPage({url:"http://www.biqiuge.com/book/2/", id:1});

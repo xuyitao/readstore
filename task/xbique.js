@@ -45,8 +45,42 @@ module.exports.spiders = async function () {
 		}
 
 	}
+}
+
+var isGo = false;
+module.exports.spiderDef = async function () {
+	debug('runtask isGo='+isGo);
+
+	if(isGo) return ;
+
+	isGo = true;
+	let key = 'curIndex'
+	let index=1;
+
+	let value = await cache.get(key);
+	if(value) {
+		index = +value;
+	} else {
+		await cache.set(key, index);
+	}
 
 
+	debug('xbieque index='+index);
+	if(index >= 30000) {
+		index = 1;
+	}
+	try {
+		let result = await getHeaderPage(index);
+		// console.log('result='+result);
+
+		if(result) {
+			index++
+			await cache.set(key, index);
+		}
+	} catch(err) {
+		debug('xbieque spiders err='+err.stack);
+	}
+	isGo = false;
 }
 function spiderTest() {
 	// for(let i = 1; i<30; i++) {
